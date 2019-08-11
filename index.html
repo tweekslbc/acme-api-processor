@@ -1,0 +1,21 @@
+<html>
+  <head>
+      <script src = 'https://cdnjs.cloudfare.com/ajax/libs/axios/0.19.0/axios.js'></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <script>
+      const loadData = async() => {
+        const urls = [
+          'https://acme-users-api-rev.herokuapp.com/api/companies',
+          'https://acme-users-api-rev.herokuapp.com/api/products',
+          'https://acme-users-api-rev.herokuapp.com/api/offerings'
+        ];
+        const responses = await Promise.all(urls.map( url => axios.get(url)));
+        const [companies, products, offerings] = responses.map ( response => response.data);
+      }
+      </script>
+  </body>
+
+</html>
