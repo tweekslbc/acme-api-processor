@@ -18,7 +18,7 @@
         function findProductsInPriceRange(array, object){
           // find all products with a price between 1 and 15
             const result = products.filter(function(val){
-             return products.suggestedPrice >= 1 && products.suggestedPrice <= 15;
+             return products.suggestedPrice >= object.min.value && products.suggestedPrice <= object.max.value;
               console.log(result);
             });
           }
