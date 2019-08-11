@@ -1,6 +1,6 @@
 <html>
   <head>
-      <script src = 'https://cdnjs.cloudfare.com/ajax/libs/axios/0.19.0/axios.js'></script>
+<script src ='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js'></script>
     <style>
     </style>
   </head>
@@ -14,7 +14,14 @@
         ];
         const responses = await Promise.all(urls.map( url => axios.get(url)));
         const [companies, products, offerings] = responses.map ( response => response.data);
-      }
+        console.log(products);
+
+        const productsInPriceRange = findProductsInPriceRange (products, {min:1, max:15});
+        function findProductsInPriceRange(array, object){
+
+        }
+      };
+      loadData();
       </script>
   </body>
 
