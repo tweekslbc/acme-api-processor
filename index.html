@@ -15,18 +15,12 @@
         const responses = await Promise.all(urls.map( url => axios.get(url)));
         const [companies, products, offerings] = responses.map ( response => response.data);
         const productsInPriceRange = findProductsInPriceRange (products, {min:1, max:15});
+
         function findProductsInPriceRange(array, object){
-          // find all products with a price between 1 and 15
-            const result = products.filter(function(val){
-             return products.suggestedPrice >= object.min.value && products.suggestedPrice <= object.max.value;
-              console.log(result);
-            });
-          }
-
-
-        };
+          if (array.suggestedPrice >= object.min && array.suggestedPrice <= object.max)
+          return array.name;
+        }
+          };
       loadData();
       </script>
   </body>
-
-</html>
