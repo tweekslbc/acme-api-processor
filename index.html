@@ -1,42 +1,32 @@
 <html>
   <head>
-<script src ='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js'></script>
-    <style>
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+    <style></style>
   </head>
   <body>
     <script>
-      const loadData = async() => {
+      const loadData = async () => {
         const urls = [
-          'https://acme-users-api-rev.herokuapp.com/api/companies',
-          'https://acme-users-api-rev.herokuapp.com/api/products',
-          'https://acme-users-api-rev.herokuapp.com/api/offerings'
+          "https://acme-users-api-rev.herokuapp.com/api/companies",
+          "https://acme-users-api-rev.herokuapp.com/api/products",
+          "https://acme-users-api-rev.herokuapp.com/api/offerings"
         ];
-        const responses = await Promise.all(urls.map( url => axios.get(url)));
-        const [companies, products, offerings] = responses.map ( response => response.data);
-        const productsInPriceRange = findProductsInPriceRange (products, {min:1, max:15});
-    //version 1
-     // function findProductsInPriceRange(array, object){
-        //   if (array.suggestedPrice >= object.min && array.suggestedPrice <= object.max)
-        //   return array.name;
-        // }
+        const responses = await Promise.all(urls.map(url => axios.get(url)));
+        const [companies, products, offerings] = responses.map(
+          response => response.data
+        );
+        const productsInPriceRange = findProductsInPriceRange(products, {
+          min: 1,
+          max: 15
+        });
 
-        function findProductsInPriceRange(oldArray, oldObj){
- //placeholder
-  const newObj = {};
-  const keys = Object.keys(oldObj);
- //map over the array and make new array (without changing old object)
-  const newArray = keys.map( key => {
-
-});
- //return new object
-return newObj;
-});
-
-
-
+        function findProductsInPriceRange(oldArray, { min, max }) {
+          // every product within products and check suggested price, returns what is true
+          return oldArray.filter(product => product.suggestedPrice >= min && product.suggestedPrice <= max );
+        }
         console.log(productsInPriceRange);
-          };
+      };
       loadData();
-      </script>
+    </script>
   </body>
+</html>
