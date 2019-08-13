@@ -15,10 +15,26 @@
         const responses = await Promise.all(urls.map( url => axios.get(url)));
         const [companies, products, offerings] = responses.map ( response => response.data);
         const productsInPriceRange = findProductsInPriceRange (products, {min:1, max:15});
-        function findProductsInPriceRange(array, object){
-          if (array.suggestedPrice >= object.min && array.suggestedPrice <= object.max)
-          return array.name;
-        }
+    //version 1
+     // function findProductsInPriceRange(array, object){
+        //   if (array.suggestedPrice >= object.min && array.suggestedPrice <= object.max)
+        //   return array.name;
+        // }
+
+        function findProductsInPriceRange(oldArray, oldObj){
+ //placeholder
+  const newObj = {};
+  const keys = Object.keys(oldObj);
+ //map over the array and make new array (without changing old object)
+  const newArray = keys.map( key => {
+
+});
+ //return new object
+return newObj;
+});
+
+
+
         console.log(productsInPriceRange);
           };
       loadData();
