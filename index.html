@@ -29,18 +29,17 @@
 
         // need to make first letter of company the key, value is all companies that start with that letter in an array
         const groupedCompaniesByLetter = groupCompaniesByState(companies);
-
-        function groupCompaniesByState(companies){
-            //need to push into an object
-         const newList = {};
-         //grab first letter of company
-         const letterKey = companies.name.charAt(0);
-         return companies.map(name => companies.name[i] === letterKey );
-         console.log(groupedCompaniesByLetter);
+            //need to push into an object at some point
+       function groupCompaniesByState(compArr){
+        const newlist = {};
+         return compArr.map(company => {
+          const letterKey = (compArr.name).charAt(0);
+           console.log(letterKey);
+         //console.log(groupedCompaniesByLetter);
 
         }
 
-
+         )}
 
          };
       loadData();
